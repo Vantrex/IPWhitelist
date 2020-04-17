@@ -49,7 +49,7 @@ public class BungeeIPs {
         }
     }
 
-    public ImmutableList<String> getIPs() {
+    public ImmutableList<Object> getIPs() {
         try {
         return ImmutableList.builder()
             .addAll(this.bungeeips)
@@ -63,6 +63,7 @@ public class BungeeIPs {
     }
 
     public boolean allow(String ip) {
+        if(ip == null) return false;
         try {
             return this.bungeeips.contains(ip)
                 || this.node.getNode("whitelist").getList(TypeToken.of(String.class), new ArrayList()).contains(ip);
@@ -70,10 +71,12 @@ public class BungeeIPs {
     }
 
     public boolean allow(InetSocketAddress addr) {
+        if(addr == null) return false;
         return allow(addr.getAddress().getHostAddress());
     }
 
     public boolean allow(InetAddress addr) {
+        if(addr == null) return false;
         return allow(addr.getHostAddress());
     }
 

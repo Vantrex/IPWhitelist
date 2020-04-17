@@ -80,8 +80,8 @@ public class IPWhitelist extends JavaPlugin {
         if (args[0].equalsIgnoreCase("list")) {
             sender.sendMessage(getTag() + ChatColor.AQUA + "Whitelisted IPs :");
             StringBuilder iplistbuff = new StringBuilder();
-            for (String ip : bungeeips.getIPs()) {
-                iplistbuff.append(ChatColor.AQUA + ip + "\n");
+            for (Object ip : bungeeips.getIPs()) {
+                iplistbuff.append(ChatColor.AQUA).append(ip).append("\n");
             }
             // Delete last newline if there is one.
             if (iplistbuff.length() > 0) {
