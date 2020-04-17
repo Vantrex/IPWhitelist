@@ -4,13 +4,15 @@ import java.util.List;
 import java.util.ArrayList;
 import java.io.IOException;
 
-import ninja.leaping.configurate.loader.ConfigurationLoader;
-import ninja.leaping.configurate.commented.CommentedConfigurationNode;
-import ninja.leaping.configurate.commented.SimpleCommentedConfigurationNode;
-import ninja.leaping.configurate.objectmapping.ObjectMappingException;
+
 import com.google.common.reflect.TypeToken;
 
 import com.google.common.collect.ImmutableList;
+import ninja.leaping.configurate.commented.CommentedConfigurationNode;
+import ninja.leaping.configurate.commented.SimpleCommentedConfigurationNode;
+import ninja.leaping.configurate.loader.ConfigurationLoader;
+import ninja.leaping.configurate.objectmapping.ObjectMappingException;
+
 import java.net.InetSocketAddress;
 import java.net.InetAddress;
 
@@ -37,8 +39,8 @@ public class BungeeIPs {
         try {
             this.node = loader.load();
             if (this.node.getNode("setup").getBoolean(false) &&
-                !bungeeips.isEmpty() &&
-                !this.node.getNode("whitelist").getList(TypeToken.of(String.class)).isEmpty()) {
+                    !bungeeips.isEmpty() &&
+                    !this.node.getNode("whitelist").getList(TypeToken.of(String.class)).isEmpty()) {
                 this.node.getNode("setup").setValue(false);
                 this.loader.save(this.node);
             }
@@ -51,10 +53,10 @@ public class BungeeIPs {
 
     public ImmutableList<Object> getIPs() {
         try {
-        return ImmutableList.builder()
-            .addAll(this.bungeeips)
-            .addAll(this.node.getNode("whitelist").getList(TypeToken.of(String.class), new ArrayList()))
-            .build();
+            return ImmutableList.builder()
+                    .addAll(this.bungeeips)
+                    .addAll(this.node.getNode("whitelist").getList(TypeToken.of(String.class), new ArrayList()))
+                    .build();
         } catch (ObjectMappingException e) { return null; } // Impossible
     }
 
@@ -66,7 +68,7 @@ public class BungeeIPs {
         if(ip == null) return false;
         try {
             return this.bungeeips.contains(ip)
-                || this.node.getNode("whitelist").getList(TypeToken.of(String.class), new ArrayList()).contains(ip);
+                    || this.node.getNode("whitelist").getList(TypeToken.of(String.class), new ArrayList()).contains(ip);
         } catch (ObjectMappingException e) { return false; }
     }
 

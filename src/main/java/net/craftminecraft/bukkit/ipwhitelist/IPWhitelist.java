@@ -3,6 +3,9 @@ package net.craftminecraft.bukkit.ipwhitelist;
 import java.io.File;
 import java.util.List;
 
+import net.craftminecraft.common.ipwhitelist.BungeeIPs;
+import ninja.leaping.configurate.loader.ConfigurationLoader;
+import ninja.leaping.configurate.yaml.YAMLConfigurationLoader;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,14 +16,8 @@ import org.bukkit.util.ChatPaginator;
 import org.bukkit.util.ChatPaginator.ChatPage;
 
 import com.google.common.collect.Lists;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
+
 import java.util.logging.Level;
-
-import ninja.leaping.configurate.loader.ConfigurationLoader;
-import ninja.leaping.configurate.yaml.YAMLConfigurationLoader;
-
-import net.craftminecraft.common.ipwhitelist.BungeeIPs;
 
 public class IPWhitelist extends JavaPlugin {
 

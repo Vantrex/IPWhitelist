@@ -2,6 +2,7 @@ package net.craftminecraft.sponge.ipwhitelist;
 
 import java.util.ArrayList;
 
+import net.craftminecraft.common.ipwhitelist.BungeeIPs;
 import org.slf4j.Logger;
 
 import com.google.inject.Inject;
@@ -25,8 +26,6 @@ import org.spongepowered.api.event.game.state.GameStartingServerEvent;
 import org.spongepowered.api.event.game.state.GameInitializationEvent;
 import org.spongepowered.api.event.network.ClientConnectionEvent;
 import org.spongepowered.api.event.network.ChannelRegistrationEvent;
-
-import net.craftminecraft.common.ipwhitelist.BungeeIPs;
 
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
