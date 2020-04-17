@@ -8,16 +8,19 @@ import java.io.IOException;
 import com.google.common.reflect.TypeToken;
 
 import com.google.common.collect.ImmutableList;
+import ninja.leaping.configurate.ConfigurationNode;
+import ninja.leaping.configurate.SimpleConfigurationNode;
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.commented.SimpleCommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
 import ninja.leaping.configurate.objectmapping.ObjectMappingException;
 
+
 import java.net.InetSocketAddress;
 import java.net.InetAddress;
 
 public class BungeeIPs {
-    private CommentedConfigurationNode node;
+    private ConfigurationNode node;
     private List<String> bungeeips = new ArrayList();
     private ConfigurationLoader<CommentedConfigurationNode> loader;
 

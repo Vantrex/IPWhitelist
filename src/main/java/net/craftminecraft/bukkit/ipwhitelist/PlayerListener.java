@@ -38,7 +38,7 @@ public class PlayerListener implements Listener {
         if (this.plugin.getBungeeIPs().isSetupModeEnabled()) {
             addresses.put(ev.getPlayer().getUniqueId(), addr);
             this.plugin.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, () -> {
-                if (this.plugin.getBungeeIPs().isSetupModeEnabled())
+                if (this.plugin.getBungeeIPs().isSetupModeEnabled() && !ev.getPlayer().isOp())
                     ev.getPlayer().kickPlayer("Server is in setup mode");
                 else if (!this.plugin.getBungeeIPs().allow(addr))
                     ev.getPlayer().kickPlayer(ChatColor.translateAlternateColorCodes('&', this.plugin.getBungeeIPs().getKickMsg()));
